@@ -1,0 +1,11 @@
+@use './quiz-library/quiz-library' as *;
+@use './quiz-create/quiz-create' as *;
+@use './quiz-view/quiz-view' as *;
+@use './quiz-edit/quiz-edit' as *;
+
+@mixin load() {
+    @include quiz-library();
+    @include quiz-create();
+    @include quiz-view();
+    @include quiz-edit();
+}

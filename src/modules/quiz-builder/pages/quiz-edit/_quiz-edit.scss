@@ -1,0 +1,5 @@
+@use './commponents/edit-quiz-form/edit-quiz-form.scss' as *;
+
+@mixin quiz-edit() {
+    @include edit-quiz-form();
+}

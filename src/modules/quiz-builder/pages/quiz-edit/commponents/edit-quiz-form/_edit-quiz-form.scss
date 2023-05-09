@@ -1,0 +1,43 @@
+@mixin edit-quiz-form() {
+    .edit-form {
+        width: 100%;
+        max-width: 30rem;
+
+        &-title {
+            text-align: center;
+        }
+
+        &-card {
+            background-color: #fff;
+            padding: 1rem;
+            margin: .5rem 0;
+            border: 1px solid #e5eaf3;
+            border-radius: .5rem;
+        }
+        &-field {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: .5rem 0;
+
+            &-input { 
+                max-width: 22rem;
+            }
+        }
+
+        &-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: end;
+
+            &-submit {
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+}

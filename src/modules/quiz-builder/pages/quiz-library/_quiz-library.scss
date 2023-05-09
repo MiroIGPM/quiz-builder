@@ -1,0 +1,10 @@
+@mixin quiz-library() {
+    .quiz-library { 
+        width: 100%;
+        max-width: 30rem;
+
+        .ant-list {
+            background-color: #fff;
+        }
+    }
+}

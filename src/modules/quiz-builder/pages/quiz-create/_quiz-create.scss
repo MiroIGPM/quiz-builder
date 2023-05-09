@@ -1,0 +1,5 @@
+@use './commponents/new-quiz-form/new-quiz-form.scss' as *;
+
+@mixin quiz-create() {
+    @include new-quiz-form();
+}

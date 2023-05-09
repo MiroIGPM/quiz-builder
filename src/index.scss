@@ -1,0 +1,17 @@
+@use './modules/layout/' as ltModule;
+@use './modules/quiz-builder/pages/' as quizBuilderModule;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@include ltModule.load();
+@include quizBuilderModule.load();

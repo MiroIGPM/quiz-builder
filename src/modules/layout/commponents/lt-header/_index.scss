@@ -1,0 +1,5 @@
+@use './lt-header' as *;
+
+@mixin load-lt-header() {
+    @include lt-header();
+}

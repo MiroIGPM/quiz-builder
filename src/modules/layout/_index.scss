@@ -1,0 +1,7 @@
+@use './commponents//lt-header/' as *;
+@use './commponents/lt-page/' as *;
+
+@mixin load() {
+    @include load-lt-header();
+    @include load-lt-page();
+}

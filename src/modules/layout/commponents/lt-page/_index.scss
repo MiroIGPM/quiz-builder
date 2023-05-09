@@ -1,0 +1,5 @@
+@use './lt-page' as *;
+
+@mixin load-lt-page() {
+    @include lt-page();
+}
