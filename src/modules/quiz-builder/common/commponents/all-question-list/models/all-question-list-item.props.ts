@@ -1,8 +1,8 @@
 export interface IAllQuestionListItem {
   item: {
-    id: string;
+    id: number;
     question: string;
     answer: string;
   };
-  addExistingQuestion: (id: string, question: string, answer: string) => void;
+  addExistingQuestion: (id: number, question: string, answer: string) => void;
 }

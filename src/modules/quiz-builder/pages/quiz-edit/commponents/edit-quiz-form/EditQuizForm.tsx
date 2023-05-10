@@ -21,7 +21,7 @@ export const EditQuizForm: FC<IEditQuizFormProps> = ({ quiz }) => {
 
   const form = useRef<FormikProps<IFormValues>>(null);
 
-  const addExistingQuestion = (id: string, question: string, answer: string): void => {
+  const addExistingQuestion = (id: number, question: string, answer: string): void => {
     updateQuizIds();
     form.current?.values.questions.push({ question: question, answer: answer });
     closeModal();

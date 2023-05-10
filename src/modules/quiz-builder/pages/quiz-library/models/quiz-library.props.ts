@@ -1,6 +1,6 @@
-export interface IQuizLibraryItemProps { 
-    name: string, 
-    id: string, 
-    deleteQuiz: (id: string) => void, 
-    getActiveQuiz: (id: string) => void
+export interface IQuizLibraryItemProps {
+  name: string;
+  id: number;
+  deleteQuiz: (id: number) => void;
+  getActiveQuiz: (id: number) => void;
 }

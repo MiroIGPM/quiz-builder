@@ -1,22 +1,22 @@
 export interface IQuizBuilderContext {
   quizzes: IQuiz[] | null;
   updateQuizzes: (quiz: IQuiz) => void;
-  deleteQuiz: (id: string) => void;
+  deleteQuiz: (id: number) => void;
   activeQuiz?: IQuiz;
-  getActiveQuiz: (id: string) => void;
+  getActiveQuiz: (id: number) => void;
   clearActiveQuiz: () => void;
   editQuiz: (quiz: IQuiz) => void;
   allQuestions: IQuestion[];
 }
 
 export interface IQuiz {
-  id: string;
+  id: number;
   name: string;
   questions: IQuestion[];
 }
 
 export interface IQuestion {
-  id: string;
+  id: number;
   question: string;
   answer: string;
 }

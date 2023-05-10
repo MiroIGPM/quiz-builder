@@ -1,7 +1,7 @@
 import { IQuiz } from '../../context/models';
 import { IFormQuestion, IFormValues } from '../../pages/quiz-create/commponents/new-quiz-form/models/new-quiz-hook';
 
-export const formatQuizFormValues = (values: IFormValues, ids: string[]): IQuiz => {
+export const formatQuizFormValues = (values: IFormValues, ids: number[]): IQuiz => {
   const formatedQuestions = values.questions.map((question: IFormQuestion, index: number) => {
     return {
       id: ids[index],

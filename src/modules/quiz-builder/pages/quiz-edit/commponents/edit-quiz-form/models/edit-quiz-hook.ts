@@ -1,4 +1,4 @@
 export interface IEditQuizHook {
-  quizIds: string[];
+  quizIds: number[];
   updateQuizIds: () => void;
 }

@@ -1,8 +1,8 @@
 import { Field, Form, Formik, FormikProps } from 'formik';
 import { FC, useRef, useState } from 'react';
-import uuid from 'react-uuid';
 import { QBButton, QBInput } from 'src/modules/common/commponents';
 import { QBModal } from 'src/modules/common/commponents/modal/QBModal';
+import { getUniqueIdentifier } from 'src/modules/common/helpers/identifier-helper';
 import { Locations, useNavigationHook } from 'src/modules/common/hooks';
 import { AllQuestionList } from 'src/modules/quiz-builder/common/commponents/all-question-list/AllQuestionList';
 import { IQuiz } from 'src/modules/quiz-builder/context/models';
@@ -23,7 +23,7 @@ export const NewQuizForm: FC = () => {
 
   const form = useRef<FormikProps<IFormValues>>(null);
 
-  const addExistingQuestion = (id: string, question: string, answer: string): void => {
+  const addExistingQuestion = (id: number, question: string, answer: string): void => {
     updateQuestionIds();
     form.current?.values.questions.push({ question: question, answer: answer });
     closeModal();
@@ -49,7 +49,7 @@ export const NewQuizForm: FC = () => {
 
       <Formik
         initialValues={{
-          id: uuid(),
+          id: getUniqueIdentifier(),
           name: '',
           questions: [{ question: '', answer: '' }]
         }}

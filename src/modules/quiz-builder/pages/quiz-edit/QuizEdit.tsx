@@ -11,7 +11,7 @@ export const QuizEdit: FC = () => {
   const params = useParams<{ id: string }>();
 
   useEffect(() => {
-    getActiveQuiz(params?.id);
+    getActiveQuiz(Number(params?.id));
   }, [getActiveQuiz, params?.id]);
 
   useEffect(() => {

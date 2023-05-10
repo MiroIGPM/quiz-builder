@@ -7,7 +7,7 @@ import { QuizLibraryItem } from './commponents/quiz-library-item/QuizLibraryItem
 export const QuizLibrary: FC = () => {
   const { quizzes, deleteQuiz, getActiveQuiz } = useQuizBuilderContext();
 
-  const renderQuizLibraryItem = (item: { name: string; id: string }) => {
+  const renderQuizLibraryItem = (item: { name: string; id: number }) => {
     return <QuizLibraryItem name={item.name} id={item.id} deleteQuiz={deleteQuiz} getActiveQuiz={getActiveQuiz} />;
   };
 

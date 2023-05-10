@@ -1,16 +1,16 @@
 export interface INewQuizHook {
-  questionsIds: string[];
+  questionsIds: number[];
   updateQuestionIds: () => void;
 }
 
 export interface IFormValues {
-  id: string;
+  id: number;
   name: string;
   questions: IFormQuestion[];
 }
 
 export interface IFormQuestion {
-  id?: string;
+  id?: number;
   question: string;
   answer: string;
 }

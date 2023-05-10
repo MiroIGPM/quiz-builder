@@ -5,7 +5,7 @@ import { AllQuestionListItem } from './commponents/all-question-list-item/AllQue
 import { IAllQuestionList } from './models/all-question-lits.prop';
 
 export const AllQuestionList: FC<IAllQuestionList> = ({ questions, addExistingQuestion }) => {
-  const renderAllQuestionListItem = (item: { id: string; question: string; answer: string }) => {
+  const renderAllQuestionListItem = (item: { id: number; question: string; answer: string }) => {
     return <AllQuestionListItem item={item} addExistingQuestion={addExistingQuestion} />;
   };
 

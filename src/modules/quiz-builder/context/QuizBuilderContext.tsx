@@ -1,13 +1,51 @@
-import { Context as ReactContext, createContext, FC, useCallback, useContext, useMemo, useState } from 'react';
+import {
+  Context as ReactContext,
+  createContext,
+  FC,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react';
 
+import { QuizService } from '../services/quiz-service';
 import { IQuestion, IQuiz, IQuizBuilderContext, IQuizBuilderContextProps } from './models';
 
 const Context = createContext<IQuizBuilderContext | null>(null);
 
+const quizService = new QuizService('localhost:8000');
+
 export const QuizBuilderContextProvider: FC<IQuizBuilderContextProps> = ({ children }) => {
   const [quizzes, setQuizzes] = useState<IQuiz[] | []>([]);
   const [activeQuiz, setActiveQuiz] = useState<IQuiz | undefined>(undefined);
-  const [allQuestions, setAllQuestions] = useState<{ id: string; answer: string; question: string }[]>([]);
+  const [allQuestions, setAllQuestions] = useState<{ id: number; answer: string; question: string }[]>([]);
+
+  useEffect(() => {
+    const fetchQuizzes = async () => {
+      try {
+        const { response } = await quizService.getAll({ path: 'quizzes' });
+        setQuizzes(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchQuizzes();
+  }, []);
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const { response } = await quizService.getQuestions({ path: 'questions' });
+        setAllQuestions(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchQuestions();
+  }, []);
 
   const updateAllQuestions = useCallback(
     (questions: IQuestion[]) => {
@@ -45,14 +83,14 @@ export const QuizBuilderContextProvider: FC<IQuizBuilderContextProps> = ({ child
   );
 
   const deleteQuiz = useCallback(
-    (id: string) => {
+    (id: number) => {
       setQuizzes(quizzes.filter((quiz) => quiz.id !== id));
     },
     [quizzes]
   );
 
   const getActiveQuiz = useCallback(
-    (id: string): void => {
+    (id: number): void => {
       const selectedQuiz = quizzes.find((quiz) => quiz.id === id);
       setActiveQuiz(selectedQuiz);
     },
